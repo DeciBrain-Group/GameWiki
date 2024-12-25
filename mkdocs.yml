@@ -1,3 +1,24 @@
-site_name: My Docs
+site_name: Game Wiki
 theme:
   name: material
+
+nav:
+  - Home: index.md
+  - Environments: environments/environments.md
+      - Starcraft II: environments/starcraft2/starcraft2.md
+      - Civilization: environments/civ/civ.md
+      - Street Fighter III: environments/street_fighter/street_fighter.md
+      - Diplomacy: environments/diplomacy/diplomacy.md
+      - Werewolf: environments/werewolf/werewolf.md
+      - Stratego: environments/startego/startego.md
+  - Evaluation and Capabilities: evaluation_and_capabilities/evaluation_and_capabilities.md
+      - Performance Metrics: evaluation_and_capabilities/performance.md
+      - Multi-agent Interaction: evaluation_and_capabilities/multi_agent_interaction.md
+      - Complex Task Handling: evaluation_and_capabilities/complex_task_handling.md
+      - Benchmarks: evaluation_and_capabilities/benchmarks.md
+      - Capabilities: evaluation_and_capabilities/capabilities.md
+  - Code Framework: code_framework/code_framework.md
+      - Gym Interface: code_framework/gym_interface.md
+  - Experimental: experimental/experimental_setup.md
+      - Experimental Setup: experimental/experimental_setup/experimental_setup.md
+      - Experimental Result: experimental/experimental_result/experimental_result.md
