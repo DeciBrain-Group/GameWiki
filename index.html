@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#welcome-to-dsgbench" class="md-skip">
           Skip to content
         </a>
       
@@ -235,18 +235,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#what-is-dsgbench" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      What is DSGBench?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      Key Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Start
     </span>
   </a>
   
@@ -833,18 +851,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#what-is-dsgbench" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      What is DSGBench?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      Key Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Start
     </span>
   </a>
   
@@ -865,21 +901,84 @@
                   
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h1 id="welcome-to-dsgbench">Welcome to DSGBench</h1>
+<p>DSGBench is a benchmark designed to evaluate <strong>Large Language Models (LLMs)</strong> in dynamic game environments. It provides tools to assess an agent's decision-making, strategic planning, adaptability, and interaction capabilities in complex and diverse scenarios.</p>
+<h2 id="what-is-dsgbench">What is DSGBench?</h2>
+<p>DSGBench focuses on testing the ability of LLM-based agents in the following aspects:</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><strong>Decision-making</strong>: Making optimal choices in real-time or turn-based game scenarios.</li>
+<li><strong>Strategic Planning</strong>: Designing long-term strategies to achieve game objectives.</li>
+<li><strong>Adaptability</strong>: Adjusting strategies dynamically in response to environmental changes.</li>
+<li><strong>Multi-agent Interaction</strong>: Collaborating or competing with other agents in multi-agent games.</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+<p>By supporting games like <em>Starcraft II</em>, <em>Diplomacy</em>, <em>Werewolf</em>, and more, DSGBench provides a comprehensive benchmark for evaluating LLM performance in decision-making and interaction-heavy tasks.</p>
+<h2 id="key-features">Key Features</h2>
+<ol>
+<li><strong>Diverse Game Environments</strong>:<br />
+   DSGBench includes a variety of game environments, each offering unique challenges to LLM agents:</li>
+<li><em>Real-time strategy</em>: Starcraft II</li>
+<li><em>Turn-based strategy</em>: Civilization</li>
+<li><em>Social reasoning</em>: Werewolf</li>
+<li><em>Negotiation and diplomacy</em>: Diplomacy</li>
+<li>
+<p><em>Strategic planning</em>: Stratego</p>
+</li>
+<li>
+<p><strong>Standardized Evaluation Metrics</strong>:<br />
+   A set of well-defined metrics to evaluate agents across decision-making accuracy, adaptability, and strategic interaction.</p>
+</li>
+<li>
+<p><strong>Extensible Framework</strong>:<br />
+   Built on a modular codebase, DSGBench can be extended to support new games or integrate with other AI frameworks like OpenAI Gym.</p>
+</li>
+<li>
+<p><strong>Open Source</strong>:<br />
+   DSGBench is fully open-source, enabling researchers to contribute, customize, and extend its functionality.</p>
+</li>
+</ol>
+<hr />
+<h2 id="documentation-overview">Documentation Overview</h2>
+<p>This documentation is divided into the following sections:</p>
+<ul>
+<li>
+<p><a href="environments/environments/"><strong>Environments</strong></a>:<br />
+  Detailed descriptions of the supported games, including rules, challenges, and required agent capabilities.</p>
+</li>
+<li>
+<p><a href="evaluation_and_capabilities/evaluation_and_capabilities/"><strong>Evaluation and Capabilities</strong></a>:<br />
+  Overview of the evaluation metrics and the specific skills needed to succeed in DSGBench environments.</p>
+</li>
+<li>
+<p><a href="code_framework/overview.md"><strong>Code Framework</strong></a>:<br />
+  Technical guide for setting up the environment, interacting with LLM agents, and running experiments.</p>
+</li>
+<li>
+<p><a href="experimental/experimental_setup/experimental_setup/"><strong>Experimental Setup</strong></a>:<br />
+  Guide to setting up and running experiments, including dataset preparation and result analysis.</p>
+</li>
+</ul>
+<hr />
+<h2 id="quick-start">Quick Start</h2>
+<p>To get started with DSGBench, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Clone the Repository</strong>:
+   <code>bash
+   git clone https://github.com/your-repository/dsgbench.git
+   cd dsgbench</code></p>
+</li>
+<li>
+<p><strong>Install Dependencies</strong>:
+   <code>bash
+   pip install -r requirements.txt</code></p>
+</li>
+</ol>
+<h1 id="contributing">Contributing</h1>
+<p>We welcome contributions to DSGBench! If you’d like to report an issue, suggest a feature, or submit a pull request, please visit our GitHub repository.</p>
+<h1 id="license">License</h1>
+<p>DSGBench is open-sourced under the MIT License - see the LICENSE file for details.</p>
+<h1 id="contact">Contact</h1>
+<p>For any questions or feedback, please contact us at <a href="mailto:your-email@example.com">your-email@example.com</a>.</p>
 
 
 
