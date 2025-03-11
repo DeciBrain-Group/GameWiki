@@ -1,5 +1,8 @@
+!!! warning "GameWiki Under Construction"
+    Welcome to DSGBench GameWiki! This wiki is currently under active development. We are working on comprehensive game guides, strategies, and mechanics documentation. The complete wiki content will be available soon. Thank you for your interest and patience!
+
 # Welcome to DSGBench
-DSGBench is a benchmark designed to evaluate **Large Language Models (LLMs)** in dynamic game environments. It provides tools to assess an agent's decision-making, strategic planning, adaptability, and interaction capabilities in complex and diverse scenarios.
+DSGBench is a novel strategic game benchmark designed to evaluate the performance of LLM-based agents in strategic planning, real-time decision making, adaptability, and multi-agent interactions. The benchmark encompasses six high-dynamics, complex strategy games, including StarCraft II, Civilization, Street Fighter III, and others. It provides fine-grained metrics for comprehensive evaluation, along with detailed decision trajectory analysis and trajectory datasets.
 
 
 ## What is DSGBench?
@@ -69,12 +72,30 @@ To get started with DSGBench, follow these steps:
 
 # Contributing
 
-We welcome contributions to DSGBench! If you’d like to report an issue, suggest a feature, or submit a pull request, please visit our GitHub repository.
+We welcome contributions to DSGBench! If you'd like to report an issue, suggest a feature, or submit a pull request, please visit our GitHub repository.
 
 # License
 
-DSGBench is open-sourced under the MIT License - see the LICENSE file for details.
+DSGBench is open-sourced under the  [MIT License](https://opensource.org/licenses/MIT) - see the LICENSE file for details.
 
 # Contact
 
-For any questions or feedback, please contact us at [your-email@example.com](mailto:your-email@example.com).
+For any questions or feedback, please contact us at [wenjietang2022@163.com](mailto:wenjietang2022@163.com).
+
+
+
+# Citation
+
+If you find DSGBench useful for your research, please consider citing our paper:
+
+```bibtex
+@misc{tang2025dsgbenchdiversestrategicgame,
+      title={DSGBench: A Diverse Strategic Game Benchmark for Evaluating LLM-based Agents in Complex Decision-Making Environments}, 
+      author={Wenjie Tang and Yuan Zhou and Erqiang Xu and Keyan Cheng and Minne Li and Liquan Xiao},
+      year={2025},
+      eprint={2503.06047},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2503.06047}
+}
+```
