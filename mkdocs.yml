@@ -1,28 +1,94 @@
-site_name: Game Wiki
+site_name: DSGBench GameWiki
+site_description: A comprehensive wiki for DSGBench and DSGBench++ — Strategic Game Benchmark for LLM Agents
+site_url: https://decibrain-group.github.io/GameWiki/
+
 theme:
   name: material
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.instant
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+  logo: assets/logo.png
+  favicon: assets/logo.png
+
+repo_url: https://github.com/DeciBrain-Group/DSGBench
+repo_name: DeciBrain-Group/DSGBench
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/DeciBrain-Group/DSGBench
+      name: DSGBench on GitHub
+    - icon: fontawesome/solid/file-pdf
+      link: https://arxiv.org/abs/2503.06047
+      name: DSGBench Paper on arXiv
+    - icon: fontawesome/solid/globe
+      link: https://fateyetian.github.io/DSGBench/
+      name: Project Page
 
 nav:
   - Home: index.md
-  - Environments: 
-      - environments/environments.md
-      - Starcraft II: environments/starcraft2/starcraft2.md
-      - Civilization: environments/civ/civ.md
-      - Street Fighter III: environments/street_fighter/street_fighter.md
-      - Diplomacy: environments/diplomacy/diplomacy.md
-      - Werewolf: environments/werewolf/werewolf.md
-      - Stratego: environments/startego/startego.md
-  - Evaluation and Capabilities: 
-      - evaluation_and_capabilities/evaluation_and_capabilities.md
-      - Performance Metrics: evaluation_and_capabilities/performance.md
-      - Multi-agent Interaction: evaluation_and_capabilities/multi_agent_interaction.md
-      - Complex Task Handling: evaluation_and_capabilities/complex_task_handling.md
-      - Benchmarks: evaluation_and_capabilities/benchmarks.md
-      - Capabilities: evaluation_and_capabilities/capabilities.md
-  - Code Framework: 
-      - code_framework/code_framework.md
-      - Gym Interface: code_framework/gym_interface.md
-  - Experimental: 
-      - experimental/experimental_setup.md
-      - Experimental Setup: experimental/experimental_setup/experimental_setup.md
-      - Experimental Result: experimental/experimental_result/experimental_result.md
+  - Getting Started:
+    - Quick Start: getting_started/quickstart.md
+  - Games:
+    - Overview: games/index.md
+    - StarCraft II: environments/starcraft2/starcraft2.md
+    - Civilization: environments/civ/civ.md
+    - Street Fighter III: environments/street_fighter/street_fighter.md
+    - Diplomacy: environments/diplomacy/diplomacy.md
+    - Werewolf: environments/werewolf/werewolf.md
+    - Stratego: environments/stratego/stratego.md
+  - DSGBench:
+    - Overview: dsgbench/overview.md
+    - Evaluation Metrics: evaluation_and_capabilities/evaluation_and_capabilities.md
+    - Leaderboard: dsgbench/leaderboard.md
+  - DSGBench++:
+    - Overview: dsgbenchpp/overview.md
+    - Trajectory System: dsgbenchpp/trajectory.md
+    - RL Training: dsgbenchpp/rl_training.md
+  - API Reference:
+    - Code Framework: code_framework/code_framework.md
+    - Gym Interface: code_framework/gym_interface/gym_interface.md
+  - About:
+    - Citation: about/citation.md

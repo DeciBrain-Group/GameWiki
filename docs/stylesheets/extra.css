@@ -1,0 +1,308 @@
+/* ================================================================
+   DSGBench GameWiki — Custom Stylesheet
+   Brand colors: D=green, S=yellow, G=blue, ++=purple
+   ================================================================ */
+
+/* ── Brand Color Variables ─────────────────────────────────────── */
+:root {
+  --brand-d:       rgb(0, 176, 80);
+  --brand-s:       rgb(250, 196, 34);
+  --brand-g:       rgb(0, 176, 240);
+  --brand-plus:    rgb(200, 80, 200);
+  --brand-primary: rgb(0, 176, 80);
+  --brand-dark:    rgb(0, 130, 60);
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        rgb(0, 176, 80);
+  --md-primary-fg-color--light: rgb(51, 199, 111);
+  --md-primary-fg-color--dark:  rgb(0, 130, 60);
+  --md-accent-fg-color:         rgb(250, 196, 34);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        rgb(0, 176, 80);
+  --md-primary-fg-color--light: rgb(51, 199, 111);
+  --md-primary-fg-color--dark:  rgb(0, 130, 60);
+  --md-accent-fg-color:         rgb(250, 196, 34);
+}
+
+/* ── Brand Name Inline Spans ───────────────────────────────────── */
+.brand-d    { color: rgb(0, 176, 80);   font-weight: 800; }
+.brand-s    { color: rgb(250, 196, 34); font-weight: 800; }
+.brand-g    { color: rgb(0, 176, 240);  font-weight: 800; }
+.brand-plus { color: rgb(200, 80, 200); font-weight: 800; }
+
+/* ── Hero Section ──────────────────────────────────────────────── */
+.hero-section {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 176, 80, 0.06) 0%,
+    rgba(0, 176, 240, 0.06) 50%,
+    rgba(200, 80, 200, 0.06) 100%
+  );
+  border-radius: 16px;
+  margin-bottom: 2.5rem;
+  border: 1px solid rgba(0, 176, 80, 0.15);
+}
+
+.hero-logo img {
+  width: 90px;
+  height: auto;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 4px 12px rgba(0, 176, 80, 0.25));
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0.25rem 0 0.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--md-default-fg-color--light);
+  max-width: 680px;
+  margin: 0 auto 0.75rem;
+  line-height: 1.6;
+}
+
+.hero-tagline {
+  font-style: italic;
+  color: var(--md-default-fg-color--light);
+  max-width: 580px;
+  margin: 0 auto 1.75rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ── Stats Bar ─────────────────────────────────────────────────── */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 0 0 1.75rem;
+  flex-wrap: wrap;
+}
+
+.stat-item { text-align: center; }
+
+.stat-number {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  line-height: 1;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--md-default-fg-color--light);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.2rem;
+}
+
+/* ── Hero Buttons ──────────────────────────────────────────────── */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1.3rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.btn-primary {
+  background: rgb(0, 176, 80);
+  color: #fff !important;
+  border: 2px solid rgb(0, 176, 80);
+}
+.btn-primary:hover {
+  background: rgb(0, 148, 68);
+  border-color: rgb(0, 148, 68);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 176, 80, 0.30);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: rgb(0, 176, 80) !important;
+  border: 2px solid rgb(0, 176, 80);
+}
+.btn-secondary:hover {
+  background: rgba(0, 176, 80, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ── System Overview Cards ─────────────────────────────────────── */
+.system-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.module-card {
+  border-left: 4px solid var(--brand-primary);
+  padding: 1rem 1.25rem;
+  background: var(--md-code-bg-color);
+  border-radius: 0 10px 10px 0;
+  transition: box-shadow 0.15s;
+}
+.module-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 176, 80, 0.12);
+}
+.module-card h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: var(--brand-primary);
+}
+.module-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.5;
+}
+
+/* ── Game Cards Grid ───────────────────────────────────────────── */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.25rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.game-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  padding: 1.4rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  background: var(--md-default-bg-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.game-card:hover {
+  border-color: rgb(0, 176, 80);
+  box-shadow: 0 6px 20px rgba(0, 176, 80, 0.14);
+  transform: translateY(-3px);
+}
+
+.game-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.game-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.game-card p {
+  font-size: 0.87rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0;
+  line-height: 1.55;
+  flex: 1;
+}
+
+.game-card a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgb(0, 176, 80) !important;
+  text-decoration: none;
+  margin-top: 0.25rem;
+}
+.game-card a:hover { text-decoration: underline; }
+
+/* ── Badges ────────────────────────────────────────────────────── */
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.1rem 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.18rem 0.55rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.badge-realtime  { background: rgba(0, 176, 240, 0.15); color: rgb(0, 120, 200); }
+.badge-turnbased { background: rgba(0, 176, 80, 0.15);  color: rgb(0, 130, 60); }
+.badge-social    { background: rgba(200, 80, 200, 0.15); color: rgb(150, 30, 150); }
+.badge-imperfect { background: rgba(250, 196, 34, 0.20); color: rgb(150, 110, 0); }
+.badge-perfect   { background: rgba(150, 150, 150, 0.15); color: rgb(90, 90, 90); }
+
+/* ── Game Page Header ──────────────────────────────────────────── */
+.game-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: var(--md-code-bg-color);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+.game-header-icon { font-size: 3.5rem; line-height: 1; }
+.game-header-info h1 { margin: 0 0 0.4rem; font-size: 1.8rem; }
+.game-header-info p  { margin: 0; color: var(--md-default-fg-color--light); font-size: 0.95rem; }
+
+/* ── Coming Soon Banner ────────────────────────────────────────── */
+.coming-soon {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: var(--md-code-bg-color);
+  border-radius: 12px;
+  border: 2px dashed var(--md-default-fg-color--lightest);
+  margin: 2rem 0;
+}
+.coming-soon p { color: var(--md-default-fg-color--light); margin: 0.5rem 0 0; }
+
+/* ── Homepage: center content when nav sidebar is hidden ───────── */
+/* Material theme sets [hidden] on .md-sidebar--primary via frontmatter hide:navigation */
+.md-sidebar--primary[hidden] ~ .md-content {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 0;
+  flex-basis: 1140px;
+}
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero-title   { font-size: 2.2rem; }
+  .hero-stats   { gap: 1.5rem; }
+  .stat-number  { font-size: 2rem; }
+  .game-grid    { grid-template-columns: 1fr; }
+  .system-overview { grid-template-columns: 1fr; }
+  .game-header  { flex-direction: column; }
+}
+
+@media (max-width: 1200px) {
+  .md-sidebar--primary[hidden] ~ .md-content {
+    flex-basis: auto;
+    max-width: 100%;
+  }
+}

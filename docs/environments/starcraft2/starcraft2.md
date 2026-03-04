@@ -1,124 +1,139 @@
-# Starcraft II Environment
+<div class="game-header">
+  <div class="game-header-icon">⚔️</div>
+  <div class="game-header-info">
+    <h1>StarCraft II</h1>
+    <div class="badge-row">
+      <span class="badge badge-realtime">Real-time</span>
+      <span class="badge badge-imperfect">Imperfect Info</span>
+    </div>
+    <p>Real-time strategy game demanding resource management, base building, and army control under fog of war — the gold standard for complex strategic AI evaluation.</p>
+  </div>
+</div>
 
-## Game Detailed Description
+## Game Overview
 
-**Starcraft II** is a real-time strategy (RTS) game where players compete to gather resources, build bases, and control units to defeat opponents. The game requires players to make strategic decisions in real-time, balancing economy, army production, and combat. The game environment is dynamic and adversarial, making it a challenging scenario for LLM agents.
+**StarCraft II** is a real-time strategy (RTS) game where players compete to gather resources, build bases, and control armies to defeat opponents. Players must make strategic decisions continuously in real-time, balancing economy, production, and combat — all while operating under the fog of war that limits map visibility.
 
-### Key Features:
-- **Resource Management**: Players must gather minerals and vespene gas to fund their operations.
-- **Base Building**: Construct and upgrade structures to enable technology advancements.
-- **Army Control**: Train units and lead them in battles to destroy the opponent's base.
-- **Fog of War**: Players only have partial visibility of the map, requiring exploration and anticipation.
+DSGBench uses the **TextStarCraft2** environment, which wraps StarCraft II with a text-based interface so LLM agents can receive structured observations and issue natural language commands.
+
+### Why StarCraft II for LLM Evaluation?
+
+- **Real-time decision pressure** — actions must be issued continuously without turn-based pauses
+- **Fog of war** — agents must scout, infer, and anticipate under imperfect information
+- **Multi-objective management** — simultaneously balance economy, production, and combat
+- **Long-horizon planning** — build orders and tech trees require planning dozens of steps ahead
+- **Opponent adaptation** — strategies must shift in response to enemy composition and aggression
+
+---
+
+## Core Challenges for LLM Agents
+
+| Challenge | Description |
+|-----------|-------------|
+| **Resource Management** | Gather minerals and vespene gas efficiently; balance spending across units, buildings, and upgrades |
+| **Base Building** | Construct and upgrade structures in the right order to unlock technology advancements |
+| **Army Control** | Train units, position armies, and execute attacks and retreats in real-time |
+| **Fog of War** | Operate with limited map visibility; scout enemy positions and anticipate attacks |
+| **Tech Tree Navigation** | Choose the correct research path based on opponent strategy |
+| **Macro vs. Micro** | Balance high-level economic planning with low-level unit micro-management |
 
 ---
 
 ## Observation Space
 
-The **observation space** in Starcraft II consists of various state information available to the agent, such as:
+Each step, the agent receives a structured text observation containing:
 
-1. **Map View**:
-   - A 2D grid of the map, with features like terrain, structures, and units.
-   - Data includes unit types, positions, health, and ownership (player or enemy).
+| Component | Description |
+|-----------|-------------|
+| **Map View** | 2D grid of the map with terrain, structures, and visible units; includes unit types, positions, health, and ownership |
+| **Resources** | Current minerals and vespene gas amounts; available workers and resource nodes |
+| **Base State** | Active structures, ongoing production, tech upgrades, and army composition |
+| **Enemy Intel** | Visible enemy units and structures (limited by fog of war) |
+| **Game State** | Current game time, supply count, and alert conditions |
 
-2. **Resources**:
-   - Current amounts of minerals and vespene gas.
-   - Available workers and resource nodes.
+**Data formats:**
 
-3. **Game State**:
-   - Information about the player's base, including active structures, upgrades, and army composition.
-   - Limited visibility of enemy actions due to the fog of war.
-
-### Data Format:
-- **Dimensions**: A multi-channel 2D tensor representing the map state.
-- **Types**:
-  - Numerical data for resources (e.g., integers for minerals and gas).
-  - Categorical data for unit types and states (e.g., `marine`, `zergling`).
+- Numerical: resource counts (integers), unit health (floats)
+- Categorical: unit types (`marine`, `zergling`), structure states
+- Spatial: unit positions as (x, y) coordinates on the map grid
 
 ---
 
 ## Action Space
 
-The **action space** in Starcraft II is diverse, including both high-level and low-level commands:
+The action space covers both high-level strategic commands and low-level unit control:
 
-1. **Unit Commands**:
-   - **Move**: Direct a unit or group of units to a specific location.
-   - **Attack**: Target an enemy unit or structure.
-   - **Patrol**: Command units to patrol between points.
+| Category | Example Actions |
+|----------|----------------|
+| **Unit Commands** | `move(unit_id, x, y)`, `attack(unit_id, target)`, `patrol(unit_id, waypoints)` |
+| **Base Management** | `build(worker_id, structure)`, `train(structure, unit_type)`, `research(structure, upgrade)` |
+| **Macro Actions** | `expand(worker_id, location)`, `rally(units, point)`, `scout(unit_id, area)` |
 
-2. **Base Management**:
-   - **Build**: Construct buildings like barracks, factories, or supply depots.
-   - **Train**: Produce units (e.g., marines, tanks).
-   - **Research**: Upgrade units or unlock new technologies.
+**Action representation:**
 
-3. **Macro Actions**:
-   - **Expand**: Build additional bases to increase resource gathering.
-   - **Defend**: Position units to defend against enemy attacks.
-   - **Scout**: Explore the map for enemy positions or resource nodes.
-
-### Action Representation:
-- **Discrete**: Select from a predefined set of actions (e.g., `train_marine`, `build_barracks`).
-- **Continuous**: Target specific positions on the map (e.g., `move_to(x, y)`).
+- **Discrete**: Select from a predefined set of named actions (e.g., `train_marine`, `build_barracks`)
+- **Positional**: Target specific map coordinates (e.g., `move_to(32, 47)`)
 
 ---
 
-## Eval Scenes
+## Evaluation Scenes
 
-In Starcraft II, evaluation scenarios are designed to test different aspects of agent performance. Example evaluation scenes include:
-
-1. **1v1 Matches**:
-   - Agent competes against another AI-controlled player.
-   - Tests strategic planning, resource management, and combat efficiency.
-
-2. **Skirmish Mode**:
-   - Focused on small-scale combat scenarios.
-   - Evaluates unit control and micro-management capabilities.
-
-3. **Macro Management**:
-   - Emphasizes long-term planning, base expansion, and resource optimization.
-   - Tests adaptability in prolonged games.
-
-4. **Fog of War Scenarios**:
-   - Agent operates under limited information.
-   - Evaluates scouting, prediction, and counter-strategy formulation.
+| Scene | Description | Key Skill Tested |
+|-------|-------------|-----------------|
+| **1v1 Standard Match** | Agent vs. AI-controlled opponent at varying difficulty levels | Overall strategic capability |
+| **Skirmish Mode** | Small-scale focused combat scenarios with pre-set unit compositions | Unit micro-management and tactical decisions |
+| **Macro Management** | Extended games emphasizing base expansion and resource optimization | Long-horizon economic planning |
+| **Fog of War** | Scenarios with limited map visibility and hidden enemy positions | Scouting, inference, and counter-strategy |
 
 ---
 
-## Metrics
+## Evaluation Metrics
 
-The following metrics are used to evaluate agent performance in Starcraft II:
-
-1. **Win Rate**:
-   - Percentage of matches won against different levels of AI opponents.
-
-2. **Resource Efficiency**:
-   - Measures how efficiently the agent gathers and spends resources.
-
-3. **Action Accuracy**:
-   - Evaluates how effectively the agent executes actions (e.g., precise unit control).
-
-4. **Adaptability**:
-   - Assesses how quickly the agent adjusts strategies based on enemy actions or game changes.
-
-5. **Combat Effectiveness**:
-   - Ratio of units lost to units destroyed.
-
-6. **Exploration Efficiency**:
-   - Evaluates how well the agent uncovers the map and anticipates enemy strategies.
+| Metric | Description |
+|--------|-------------|
+| **Win Rate** | Percentage of matches won against AI opponents at various difficulty levels |
+| **Resource Efficiency** | Rate of resource gathering and spending relative to optimal benchmarks |
+| **Action Accuracy** | Effectiveness of executed actions (unit command precision, build order correctness) |
+| **Adaptability** | Speed and quality of strategy adjustment in response to enemy actions |
+| **Combat Effectiveness** | Ratio of enemy units destroyed to own units lost (kill/death ratio) |
+| **Exploration Efficiency** | Map coverage rate and quality of enemy intelligence gathered |
 
 ---
 
 ## Prompt Example
 
-Here is an example prompt for initializing an LLM agent in the Starcraft II environment:
+A typical LLM agent prompt in the StarCraft II environment:
 
 ```plaintext
-You are a commander in a real-time strategy game. Your goal is to defeat the enemy by gathering resources, building structures, and controlling your army. The map is partially visible, and you must anticipate enemy actions. 
+You are a commander in a real-time strategy game. Your goal is to defeat
+the enemy by gathering resources, building structures, and controlling
+your army. The map is partially visible, and you must anticipate enemy
+actions.
 
-- Current resources: 500 minerals, 200 gas
-- Current units: 10 marines, 5 tanks
-- Enemy sighted: Small zergling group approaching your base
+Current state:
+- Resources: 500 minerals, 200 vespene gas
+- Army: 10 Marines, 5 Siege Tanks
+- Alert: Small Zergling group sighted approaching your main base
 
-What will you do next? Provide a detailed action plan.
+What will you do next? Provide a specific action plan.
 ```
 
-## Example Trajectory
+---
+
+## Setup & Dependencies
+
+```bash
+# Download StarCraft II from Blizzard and install
+# Place the evaluation map at:
+StarCraft II/Maps/Ancient Cistern LE.SC2Map
+```
+
+See [Quick Start](../../getting_started/quickstart.md) for full setup instructions.
+
+---
+
+## Resources
+
+- [TextStarCraft2 GitHub](https://github.com/histmeisah/Large-Language-Models-play-StarCraftII) — the underlying text-based SC2 environment
+- [StarCraft II Official Site](https://starcraft2.blizzard.com/)
+- [DSGBench Paper](https://arxiv.org/abs/2503.06047) — Section 3.1 for StarCraft II environment details
