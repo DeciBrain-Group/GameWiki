@@ -15,7 +15,7 @@ DSGBench provides fine-grained, multi-dimensional metrics for evaluating LLM age
 
 Each game environment has a set of game-specific metrics. See individual game pages for details:
 
-- [StarCraft II Metrics](../environments/starcraft2/starcraft2.md#metrics)
+- [StarCraft II Metrics](../environments/starcraft2/starcraft2.md#evaluation-metrics)
 - [Civilization Metrics](../environments/civ/civ.md#evaluation-metrics)
 - [Street Fighter III Metrics](../environments/street_fighter/street_fighter.md#evaluation-metrics)
 - [Diplomacy Metrics](../environments/diplomacy/diplomacy.md#evaluation-metrics)
