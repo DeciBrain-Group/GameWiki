@@ -92,5 +92,10 @@ nav:
     - Environment Interfaces:
       - Overview: code_framework/gym_interface/gym_interface.md
       - StarCraft II: code_framework/gym_interface/starcraft2.md
+      - Werewolf: code_framework/gym_interface/werewolf.md
+      - Stratego: code_framework/gym_interface/stratego.md
+      - Civilization: code_framework/gym_interface/civ.md
+      - Diplomacy: code_framework/gym_interface/diplomacy.md
+      - Street Fighter III: code_framework/gym_interface/streetfight3.md
   - About:
     - Citation: about/citation.md
