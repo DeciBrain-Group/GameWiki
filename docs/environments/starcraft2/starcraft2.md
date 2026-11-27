@@ -503,6 +503,9 @@ Examples of classic timing attacks:
 
 ## Part IV: TextStarCraft2 Framework
 
+!!! tip "Interface specification"
+    The exact observation, action, prompt and output formats used by DSGBench, together with the evaluation data they provide, are documented in [Environment Interfaces → StarCraft II](../../code_framework/gym_interface/starcraft2.md).
+
 ### 4.1 Overview and Architecture
 
 **TextStarCraft2** ([arXiv:2312.11865](https://arxiv.org/abs/2312.11865), NeurIPS 2024) is a text-based interface for StarCraft II that enables LLM agents to interact with the game using natural language. Built on top of `python-sc2`, it reformulates the SC2 environment as a multi-agent **Partially Observable Markov Decision Process (POMDP)**.
